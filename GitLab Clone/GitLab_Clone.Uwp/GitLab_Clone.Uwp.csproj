@@ -127,7 +127,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GitLab Clone\GitLab_Clone\GitLab_Clone.csproj">
+    <ProjectReference Include="..\GitLab_Clone\GitLab_Clone.csproj">
       <Project>{292f7449-a475-40bf-9bb5-0c40ead84e7f}</Project>
       <Name>GitLab_Clone</Name>
     </ProjectReference>
