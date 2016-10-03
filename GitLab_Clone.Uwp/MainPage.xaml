@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="GitLab_Clone.Uwp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GitLab_Clone.Uwp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel>
+        <RelativePanel
+                Name="RelativePanelGitCredentials" 
+                Width="Auto" 
+                RelativePanel.AlignLeftWithPanel="True" 
+                RelativePanel.AlignRightWithPanel="True"
+                Margin="18">
+
+            <RelativePanel Name="GitUrlRelativePanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                <TextBlock Name="GitUrlLabel" Text="Git Lab Url:" Width="100" RelativePanel.AlignVerticalCenterWithPanel="True" TextAlignment="Right"/>
+                <TextBox Name="GitUrl" RelativePanel.RightOf="GitUrlLabel" Margin="10,0,0,0" RelativePanel.AlignRightWithPanel="True" Text="http://YOUR-GIT-LAB-SERVER-IP/api/v3/projects"/>
+            </RelativePanel>
+
+            <RelativePanel RelativePanel.Below="GitUrlRelativePanel" Name="GitPrivateTokenRelativePanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,5,0,0">
+                <TextBlock Name="GitPrivateTokenLabel" Text="Private Token:" Width="100" RelativePanel.AlignVerticalCenterWithPanel="True" TextAlignment="Right"/>
+                <TextBox Name="GitPrivateToken" RelativePanel.RightOf="GitPrivateTokenLabel" Margin="10,0,0,0" RelativePanel.AlignRightWithPanel="True" Text="QP4y4GE588rejzuLR7yy"/>
+            </RelativePanel>
+
+            <RelativePanel RelativePanel.Below="GitPrivateTokenRelativePanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                <Button Name="GetProjectsList" Content="Get Projects List" Margin="0,5,0,0"/>
+            </RelativePanel>
+
+        </RelativePanel>
+        <ListView x:Name="ProjectList" RelativePanel.Below="RelativePanelGitCredentials" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock Text="{Binding name}" 
+                               Margin="20,0,20,8"
+                               FontSize="24" 
+                               FontStyle="Italic" 
+                               FontWeight="SemiBold"
+                               Foreground="DarkBlue" />
+                            <TextBlock Text="{Binding http_url_to_repo}" 
+                               Margin="20,0,20,8"
+                               FontSize="16"
+                               Foreground="DarkGray" 
+                               Opacity="0.8" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </RelativePanel>
+</Page>
